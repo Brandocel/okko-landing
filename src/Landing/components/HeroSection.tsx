@@ -7,26 +7,42 @@ const HeroSection: React.FC = () => {
     <section
       id="home"
       className="
+        relative           /* 👈 necesario para la máscara absoluta */
         snap-start
-        min-h-[calc(100vh-72px)]
+        min-h-screen
         bg-[#f5f5f5]
-        bg-no-repeat
-        bg-right-top
-        bg-contain
         flex
         items-end
-        px-6 md:px-16
-        pb-12
+        px-6 md:px-24
+        pb-16
       "
-      style={{ backgroundImage: `url(${heroImg})` }}
+      style={{
+        backgroundImage: `url(${heroImg})`,
+        backgroundRepeat: "no-repeat",
+        backgroundSize: "auto 100%",   // edificio ocupa toda la altura
+        backgroundPosition: "right top",
+      }}
     >
-      <div className="max-w-3xl">
+      {/* MÁSCARA BLANCA */}
+      <div
+        className="
+          pointer-events-none
+          absolute
+          inset-0
+          bg-white/55       /* opacidad ~55%, ajústala a tu gusto */
+        "
+      />
+
+      {/* CONTENIDO (encima de la máscara) */}
+      <div className="relative max-w-[760px] pb-10 md:pb-16">
+        {/* TÍTULO */}
         <h1
           className="
-            font-serif
-            text-[40px] md:text-[64px]
-            leading-tight
-            tracking-[0.18em]
+            font-uchen
+            text-[48px] md:text-[80px]
+            leading-[110%]
+            tracking-[-0.02em]
+            text-black
           "
         >
           A NEW WAY OF
@@ -36,8 +52,18 @@ const HeroSection: React.FC = () => {
           ADDING VALUE
         </h1>
 
-        <div className="mt-8 text-[11px] md:text-xs">
-          <a href="#" className="underline mr-4">
+        {/* REDES SOCIALES */}
+        <div
+          className="
+            mt-2
+            font-inter
+            text-[12px]
+            leading-[110%]
+            tracking-normal
+            text-black
+          "
+        >
+          <a href="#" className="underline mr-6">
             Instagram
           </a>
           <a href="#" className="underline">

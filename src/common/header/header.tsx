@@ -4,86 +4,100 @@ import OkkoLogo from "../../assets/OKKO.svg";
 
 type NavItem = {
   label: string;
-  href: string;      // #home, #about, etc.
+  href: string;
 };
 
 const navItems: NavItem[] = [
-  { label: "HOME",        href: "#home" },
-  { label: "ABOUT US",    href: "#about" },
-  { label: "SERVICES",    href: "#services" },
+  { label: "HOME", href: "#home" },
+  { label: "ABOUT US", href: "#about" },
+  { label: "SERVICES", href: "#services" },
   { label: "OUR PROJECTS", href: "#projects" },
-  { label: "CONTACT",     href: "#contact" },
+  { label: "CONTACT", href: "#contact" },
 ];
 
 const Header: React.FC = () => {
   const [activeSection, setActiveSection] = useState<string>("home");
 
-  // Scroll suave al hacer clic en el menú
-  const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+  const handleNavClick = (
+    e: React.MouseEvent<HTMLAnchorElement>,
+    href: string
+  ) => {
     e.preventDefault();
     const id = href.replace("#", "");
-    const el = document.getElementById(id);
-    if (el) {
-      el.scrollIntoView({ behavior: "smooth" });
-    }
+    document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
   };
 
-  // Detectar qué sección está en pantalla para resaltar el nav
-  useEffect(() => {
-    const sectionIds = ["home", "about", "services", "projects", "contact"];
-    const sections = sectionIds
-      .map((id) => document.getElementById(id))
-      .filter((el): el is HTMLElement => el !== null);
+  // Secciones donde el header va en blanco (sobre fondo oscuro)
+  const lightOnDarkSections = ["about", "services", "projects"];
+  const useLightTheme = lightOnDarkSections.includes(activeSection);
 
-    if (sections.length === 0) return;
+  useEffect(() => {
+    const ids = ["home", "about", "services", "projects", "contact"];
+    const sections = ids
+      .map((id) => document.getElementById(id))
+      .filter(Boolean) as HTMLElement[];
 
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            setActiveSection(entry.target.id);
-          }
+          if (entry.isIntersecting) setActiveSection(entry.target.id);
         });
       },
-      {
-        threshold: 0.5, // cuando ~50% de la sección es visible
-      }
+      { threshold: 0.5 }
     );
 
-    sections.forEach((sec) => observer.observe(sec));
-
+    sections.forEach((s) => observer.observe(s));
     return () => observer.disconnect();
   }, []);
 
   return (
     <header
-      className="
+      className={`
         fixed top-0 left-0 right-0 z-30
         bg-transparent
-        border-b border-black/10
-      "
+        border-b
+        ${useLightTheme ? "border-white/40" : "border-black/10"}
+        transition-colors duration-300
+      `}
     >
-      <div
-        className="
-          mx-auto
-          flex
-          max-w-6xl
-          items-center
-          justify-between
-          px-8
-          py-6
-        "
-      >
+      <div className="flex w-full items-center justify-between px-6 md:px-16 py-6">
         {/* LOGO */}
-        <a href="#home" onClick={(e) => handleNavClick(e, "#home")} className="flex items-center">
-          <img src={OkkoLogo} alt="OKKO" className="h-10 w-auto" />
+        <a
+          href="#home"
+          onClick={(e) => handleNavClick(e, "#home")}
+          className="flex items-center"
+        >
+          <img
+            src={OkkoLogo}
+            alt="OKKO"
+            className={`
+              h-10 w-auto
+              transition
+              ${useLightTheme ? "invert" : ""}
+            `}
+          />
         </a>
 
         {/* NAV */}
-        <nav className="flex items-center gap-10 text-xs tracking-[0.18em] text-neutral-900 uppercase">
+        <nav
+          className={`
+            flex items-center gap-10
+            font-inter text-[18px] leading-[140%] tracking-normal
+            uppercase
+            ${useLightTheme ? "text-white" : "text-black"}
+          `}
+        >
           {navItems.map((item) => {
             const id = item.href.replace("#", "");
             const isActive = activeSection === id;
+
+            const activeColor = useLightTheme ? "text-white" : "text-black";
+            const inactiveColor = useLightTheme
+              ? "text-white/70"
+              : "text-neutral-700";
+            const activeBorder = useLightTheme
+              ? "border-white"
+              : "border-black";
 
             return (
               <a
@@ -91,14 +105,13 @@ const Header: React.FC = () => {
                 href={item.href}
                 onClick={(e) => handleNavClick(e, item.href)}
                 className={`
-                  pb-1 cursor-pointer
-                  hover:text-black
-                  transition-colors
+                  pb-1 cursor-pointer transition-colors
                   ${
                     isActive
-                      ? "border-b border-black"
-                      : "border-b border-transparent"
+                      ? `${activeColor} border-b ${activeBorder}`
+                      : `${inactiveColor} border-b border-transparent`
                   }
+                  hover:${activeColor}
                 `}
               >
                 {item.label}
