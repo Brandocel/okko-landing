@@ -63,10 +63,10 @@ const HeroSection: React.FC = () => {
             text-black
           "
         >
-          <a href="#" className="underline mr-6">
+          <a href="https://www.instagram.com/okko_corp/" className="underline mr-6">
             Instagram
           </a>
-          <a href="#" className="underline">
+          <a href="https://www.facebook.com/profile.php?id=61579715151118" className="underline">
             Facebook
           </a>
         </div>
