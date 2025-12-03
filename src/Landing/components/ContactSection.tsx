@@ -1,5 +1,6 @@
 // src/Landing/components/ContactSection.tsx
 import React from "react";
+import Footer from "../../common/footer/footer";
 
 const ContactSection: React.FC = () => {
   return (
@@ -7,13 +8,13 @@ const ContactSection: React.FC = () => {
       id="contact"
       className="
         snap-start
-        min-h-screen          /* ocupa toda la altura visible */
-        bg-[#D5CFC4]          /* máscara / fondo completo */
+        min-h-screen
+        bg-[#D5CFC4]
         flex
-        items-center
-        px-6 md:px-24
+        flex-col
       "
     >
+      <div className="flex-1 flex items-center px-6 md:px-24">
       <div
         className="
           mx-auto
@@ -169,6 +170,10 @@ const ContactSection: React.FC = () => {
           </p>
         </div>
       </div>
+
+      {/* FOOTER */}
+      </div>
+      <Footer />
     </section>
   );
 };

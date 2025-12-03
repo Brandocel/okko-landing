@@ -37,14 +37,15 @@ const Header: React.FC = () => {
       .map((id) => document.getElementById(id))
       .filter(Boolean) as HTMLElement[];
 
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) setActiveSection(entry.target.id);
-        });
-      },
-      { threshold: 0.5 }
-    );
+const observer = new IntersectionObserver(
+  (entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) setActiveSection(entry.target.id);
+    });
+  },
+  { threshold: 0.2 } // 👈 antes 0.5
+);
+
 
     sections.forEach((s) => observer.observe(s));
     return () => observer.disconnect();

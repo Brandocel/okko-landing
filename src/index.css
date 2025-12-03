@@ -8,4 +8,13 @@
 /* Opcional: fondo global clarito, igual al hero */
 body {
   @apply bg-[#f5f5f5] text-black;
+  overflow-x: hidden;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  overflow-x: hidden;
 }
