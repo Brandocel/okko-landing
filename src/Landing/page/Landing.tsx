@@ -14,7 +14,13 @@ const Landing: React.FC = () => {
       <Header />
 
       {/* CONTENEDOR DE PÁGINAS CON SCROLL-SNAP */}
-      <main className="flex-1 overflow-y-scroll overflow-x-hidden snap-y snap-mandatory">
+      <main 
+        className="flex-1 overflow-y-scroll overflow-x-hidden snap-y snap-mandatory"
+        style={{
+          scrollSnapType: "y mandatory",
+          WebkitOverflowScrolling: "touch",
+        }}
+      >
         {/* Cada sección debe tener: snap-start min-h-full */}
         <HeroSection />
         <AboutSection />

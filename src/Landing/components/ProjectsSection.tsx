@@ -29,14 +29,18 @@ const ProjectItem: React.FC<ProjectItemProps> = ({
         flex
         items-center
         justify-center
-        px-6 md:px-24
+        px-6 md:px-16
       "
+      style={{
+        scrollSnapStop: "always",
+        WebkitOverflowScrolling: "touch",
+      }}
     >
       <div
-        className={`grid gap-10 md:grid-cols-2 items-center w-full ${
+        className={`grid gap-6 md:gap-8 md:grid-cols-2 items-center w-full ${
           imagePosition === "left" ? "md:grid-flow-dense" : ""
         }`}
-        style={{ maxWidth: "1600px" }}
+        style={{ maxWidth: "clamp(1200px, 83.33vw, 1600px)" }}
       >
         {/* TEXTO */}
         <div className={imagePosition === "left" ? "md:col-start-2" : ""}>

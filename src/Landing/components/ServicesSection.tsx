@@ -22,7 +22,7 @@ type DetailFooterProps = {
 
 const DetailFooter: React.FC<DetailFooterProps> = ({ logoSrc, logoAlt, href }) => (
   <div 
-    className="w-screen border-t border-white/40 mt-8 flex items-center justify-between -mx-6 md:-mx-24 px-6 md:px-24"
+    className="w-screen border-t border-white/40 mt-8 flex items-center justify-between -mx-6 md:-mx-16 px-6 md:px-16"
     style={{ height: "clamp(95px, 10.56vh, 152px)" }}
   >
     {/* Logo específico de la división */}
@@ -30,7 +30,7 @@ const DetailFooter: React.FC<DetailFooterProps> = ({ logoSrc, logoAlt, href }) =
       <img
         src={logoSrc}
         alt={logoAlt}
-        className="h-6 md:h-8 w-auto object-contain"
+        className="h-8 md:h-10 w-auto object-contain"
       />
     </div>
 
@@ -112,9 +112,6 @@ const ServicesSection: React.FC = () => {
     }
   };
 
-  const isSelected = (index: ServiceIndex) =>
-    selectedService === index || activeService === index ? "text-[#ffe600]" : "";
-
   return (
     <section
       id="services"
@@ -132,7 +129,7 @@ const ServicesSection: React.FC = () => {
           style={{ scrollSnapAlign: "start" }}
         >
           {/* Texto central */}
-          <div className="flex-1 flex items-center justify-center px-6 md:px-24">
+          <div className="flex-1 flex items-center justify-center px-6 md:px-16">
             <p
               className="text-center"
               style={{
@@ -154,12 +151,10 @@ const ServicesSection: React.FC = () => {
             <ul>
               <li
                 onClick={() => navigateToService(0)}
-                className="border-t border-white/40 py-4 w-full flex items-center justify-between group cursor-pointer px-6 md:px-24"
+                className="border-t border-white/40 py-4 w-full flex items-center justify-between group cursor-pointer px-6 md:px-16"
               >
                 <span
-                  className={`text-[55px] leading-[130%] tracking-[-0.02em] font-normal transition-colors duration-200 group-hover:text-[#ffe600] ${isSelected(
-                    0
-                  )}`}
+                  className="text-[55px] leading-[130%] tracking-[-0.02em] font-normal transition-colors duration-200 group-hover:text-[#ffe600]"
                   style={{ fontFamily: "Uchen, serif" }}
                 >
                   CONSTRUCTION
@@ -171,12 +166,10 @@ const ServicesSection: React.FC = () => {
 
               <li
                 onClick={() => navigateToService(1)}
-                className="border-t border-white/40 py-4 w-full flex items-center justify-between group cursor-pointer px-6 md:px-24"
+                className="border-t border-white/40 py-4 w-full flex items-center justify-between group cursor-pointer px-6 md:px-16"
               >
                 <span
-                  className={`text-[55px] leading-[130%] tracking-[-0.02em] font-normal transition-colors duration-200 group-hover:text-[#ffe600] ${isSelected(
-                    1
-                  )}`}
+                  className="text-[55px] leading-[130%] tracking-[-0.02em] font-normal transition-colors duration-200 group-hover:text-[#ffe600]"
                   style={{ fontFamily: "Uchen, serif" }}
                 >
                   INTERIORISM
@@ -188,12 +181,10 @@ const ServicesSection: React.FC = () => {
 
               <li
                 onClick={() => navigateToService(2)}
-                className="border-t border-white/40 py-4 w-full flex items-center justify-between group cursor-pointer px-6 md:px-24"
+                className="border-t border-white/40 py-4 w-full flex items-center justify-between group cursor-pointer px-6 md:px-16"
               >
                 <span
-                  className={`text-[55px] leading-[130%] tracking-[-0.02em] font-normal transition-colors duration-200 group-hover:text-[#ffe600] ${isSelected(
-                    2
-                  )}`}
+                  className="text-[55px] leading-[130%] tracking-[-0.02em] font-normal transition-colors duration-200 group-hover:text-[#ffe600]"
                   style={{ fontFamily: "Uchen, serif" }}
                 >
                   FURNITURE
@@ -213,7 +204,7 @@ const ServicesSection: React.FC = () => {
           className="
             min-w-full h-full
             flex flex-col items-end justify-end
-            px-6 md:px-24
+            px-6 md:px-16
             relative
           "
           style={{
@@ -225,7 +216,7 @@ const ServicesSection: React.FC = () => {
         >
           <button
             onClick={goBack}
-            className="absolute right-6 md:right-24 text-white hover:text-[#ffe600] transition-colors duration-200 flex items-center gap-2"
+            className="absolute right-6 md:right-16 text-white hover:text-[#ffe600] transition-colors duration-200 flex items-center gap-2"
             style={{
               fontFamily: "Uchen, serif",
               fontSize: "clamp(7.5px, 1.04vw, 15px)",
@@ -272,7 +263,7 @@ const ServicesSection: React.FC = () => {
           className="
             min-w-full h-full
             flex flex-col items-end justify-end
-            px-6 md:px-24
+            px-6 md:px-16
             relative
           "
           style={{
@@ -284,7 +275,7 @@ const ServicesSection: React.FC = () => {
         >
           <button
             onClick={goBack}
-            className="absolute right-6 md:right-24 text-white hover:text-[#ffe600] transition-colors duration-200 flex items-center gap-2"
+            className="absolute right-6 md:right-16 text-white hover:text-[#ffe600] transition-colors duration-200 flex items-center gap-2"
             style={{
               fontFamily: "Uchen, serif",
               fontSize: "15px",
@@ -329,7 +320,7 @@ const ServicesSection: React.FC = () => {
           className="
             min-w-full h-full
             flex flex-col items-end justify-end
-            px-6 md:px-24
+            px-6 md:px-16
             relative
           "
           style={{
@@ -341,7 +332,7 @@ const ServicesSection: React.FC = () => {
         >
           <button
             onClick={goBack}
-            className="absolute right-6 md:right-24 text-white hover:text-[#ffe600] transition-colors duration-200 flex items-center gap-2"
+            className="absolute right-6 md:right-16 text-white hover:text-[#ffe600] transition-colors duration-200 flex items-center gap-2"
             style={{
               fontFamily: "Uchen, serif",
               fontSize: "15px",

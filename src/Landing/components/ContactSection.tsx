@@ -14,7 +14,7 @@ const ContactSection: React.FC = () => {
         flex-col
       "
     >
-      <div className="flex-1 flex items-center px-6 md:px-24">
+      <div className="flex-1 flex items-center px-6 md:px-16">
       <div
         className="
           mx-auto
