@@ -18,7 +18,9 @@ const Landing: React.FC = () => {
         className="flex-1 overflow-y-scroll overflow-x-hidden snap-y snap-mandatory"
         style={{
           scrollSnapType: "y mandatory",
+          scrollBehavior: "smooth",
           WebkitOverflowScrolling: "touch",
+          scrollPaddingTop: "0px",
         }}
       >
         {/* Cada sección debe tener: snap-start min-h-full */}

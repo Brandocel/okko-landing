@@ -14,15 +14,20 @@ const ContactSection: React.FC = () => {
         flex-col
       "
     >
-      <div className="flex-1 flex items-center px-6 md:px-16">
+      <div
+        className="flex-1 flex items-center px-6 md:px-16"
+        style={{
+          paddingTop: "clamp(32px, 5vw, 64px)",
+          paddingBottom: "clamp(32px, 5vw, 64px)",
+        }}
+      >
       <div
         className="
-          mx-auto
-          w-full max-w-6xl
+          w-full
           grid
-          gap-16
           md:grid-cols-[minmax(0,1.1fr)_minmax(0,0.9fr)]
         "
+        style={{ gap: "clamp(20px, 4vw, 60px)" }}
       >
         {/* COLUMNA IZQUIERDA: TÍTULO + FORMULARIO */}
         <div className="flex flex-col">
@@ -30,24 +35,26 @@ const ContactSection: React.FC = () => {
           <h2
             className="
               font-uchen
-              text-[32px] md:text-[40px]
               leading-[110%]
               tracking-[-0.02em]
               text-[#2D2C29]
-              mb-12
+              mb-[clamp(20px,3.5vw,44px)]
             "
+            style={{
+              fontSize: "clamp(28px, 2.5vw, 40px)",
+            }}
           >
             CONTACT&nbsp;US
           </h2>
 
           {/* FORM */}
-          <form className="space-y-10">
+          <form className="space-y-6 md:space-y-9">
             {/* NAME */}
             <div>
               <label
                 className="
                   font-inter
-                  text-[12px]
+                  text-[clamp(11px,1vw,12px)]
                   leading-[140%]
                   tracking-[0]
                   text-black
@@ -75,7 +82,7 @@ const ContactSection: React.FC = () => {
               <label
                 className="
                   font-inter
-                  text-[12px]
+                  text-[clamp(11px,1vw,12px)]
                   leading-[140%]
                   tracking-[0]
                   text-black
@@ -103,7 +110,7 @@ const ContactSection: React.FC = () => {
               <label
                 className="
                   font-inter
-                  text-[12px]
+                  text-[clamp(11px,1vw,12px)]
                   leading-[140%]
                   tracking-[0]
                   text-black
@@ -153,14 +160,13 @@ const ContactSection: React.FC = () => {
           <p
             className="
               font-uchen
-              text-[32px] md:text-[44px]
               leading-[120%]
               tracking-[-0.02em]
               text-[#2D2C29]
               text-right
               max-w-md
-              mr-[4vw]
             "
+            style={{ fontSize: "clamp(26px, 2.6vw, 44px)" }}
           >
             BEST-IN-CLASS
             <br />

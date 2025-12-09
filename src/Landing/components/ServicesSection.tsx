@@ -68,15 +68,10 @@ const DetailFooter: React.FC<DetailFooterProps> = ({ logoSrc, logoAlt, href }) =
 const ServicesSection: React.FC = () => {
   const horizontalScrollRef = useRef<HTMLDivElement>(null);
 
-  const [activeService, setActiveService] = useState<ServiceIndex | null>(null);
-  const [selectedService, setSelectedService] = useState<ServiceIndex | null>(0);
   const [lastScrollY, setLastScrollY] = useState<number | null>(null);
 
   const navigateToService = (index: ServiceIndex) => {
     setLastScrollY(window.scrollY);
-
-    setSelectedService(index);
-    setActiveService(index);
 
     if (horizontalScrollRef.current) {
       const container = horizontalScrollRef.current;
@@ -95,10 +90,6 @@ const ServicesSection: React.FC = () => {
         left: 0,
         behavior: "smooth",
       });
-
-      setTimeout(() => {
-        setActiveService(null);
-      }, 300);
     }
 
     if (lastScrollY !== null) {

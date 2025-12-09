@@ -13,7 +13,7 @@ const HeroSection: React.FC = () => {
         bg-[#f5f5f5]
         flex
         items-end
-        px-6 md:px-24
+        px-6 md:px-16
         pb-16
       "
       style={{

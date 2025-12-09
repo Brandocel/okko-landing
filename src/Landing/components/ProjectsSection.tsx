@@ -32,6 +32,7 @@ const ProjectItem: React.FC<ProjectItemProps> = ({
         px-6 md:px-16
       "
       style={{
+        scrollSnapAlign: "start",
         scrollSnapStop: "always",
         WebkitOverflowScrolling: "touch",
       }}
@@ -40,7 +41,7 @@ const ProjectItem: React.FC<ProjectItemProps> = ({
         className={`grid gap-6 md:gap-8 md:grid-cols-2 items-center w-full ${
           imagePosition === "left" ? "md:grid-flow-dense" : ""
         }`}
-        style={{ maxWidth: "clamp(1200px, 83.33vw, 1600px)" }}
+        
       >
         {/* TEXTO */}
         <div className={imagePosition === "left" ? "md:col-start-2" : ""}>
@@ -130,7 +131,7 @@ const ProjectsSection: React.FC = () => {
   ];
 
   return (
-    <section id="projects" className="snap-start">
+    <section id="projects" className="contents">
       {projects.map((project, index) => (
         <ProjectItem
           key={index}
