@@ -48,7 +48,11 @@ const ContactSection: React.FC = () => {
           </h2>
 
           {/* FORM */}
-          <form className="space-y-6 md:space-y-9">
+          <form 
+            className="space-y-6 md:space-y-9"
+            action="https://formsubmit.co/Info@somosgarage.com"
+            method="POST"
+          >
             {/* NAME */}
             <div>
               <label
@@ -66,6 +70,8 @@ const ContactSection: React.FC = () => {
               </label>
               <input
                 type="text"
+                name="name"
+                required
                 className="
                   w-full
                   border-b border-black
@@ -94,6 +100,8 @@ const ContactSection: React.FC = () => {
               </label>
               <input
                 type="email"
+                name="email"
+                required
                 className="
                   w-full
                   border-b border-black
@@ -122,6 +130,8 @@ const ContactSection: React.FC = () => {
               </label>
               <textarea
                 rows={3}
+                name="message"
+                required
                 className="
                   w-full
                   border-b border-black
