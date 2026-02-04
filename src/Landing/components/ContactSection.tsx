@@ -50,7 +50,7 @@ const ContactSection: React.FC = () => {
           {/* FORM */}
           <form 
             className="space-y-6 md:space-y-9"
-            action="https://formsubmit.co/Info@somosgarage.com"
+            action="https://formsubmit.co/jp@somosgarage.com"
             method="POST"
           >
             {/* NAME */}
